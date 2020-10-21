@@ -1,4 +1,6 @@
 ### Project 0
+A simple calorie tracker that is used to keep track of your daily calorie and macronutrients (fat, carb, protein) intake whenever you eat a certain food. You can insert, remove, and search certain documents by the specified date. 
+
 A Scala CLI (Command Line Interface) application.  Data should be parsed from a CSV or JSON file and persisted to MongoDB.  The functionality of the application beyond that is up to you, but here are a few suggestions:
 - journal app
 - banking app
