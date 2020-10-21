@@ -13,6 +13,7 @@ import org.mongodb.scala.{MongoClient, MongoCollection, Observable}
 
 import scala.concurrent.Await
 import scala.concurrent.duration.{Duration, SECONDS}
+import scala.util.matching.Regex
 // make sure to start with imports in your own code
 import org.mongodb.scala.bson.codecs.Macros._
 import org.bson.codecs.configuration.CodecRegistries.{fromProviders, fromRegistries}
@@ -89,12 +90,15 @@ class Cli {
     println("Please enter a number from the list (to add a food you ate) OR enter one of the following options:")
     println("-- delete [food#] : delete a food in your current list")
     println("-- clear current : clear current list")
-    println("-- show current : show current list and intake")
+    println("-- show current : show current list and total intake")
     println("-- show all : show entire food list")
+    println("-- show saved: show all data from DB by date")
     println("-- save food: store current food list in DB")
-    println("-- save calories: store current intake in DB")
+    println("-- save calories: store total current intake in DB")
+    println("-- save all: store both current food list and total current intake in DB")
     println("-- reset food: reset entire food list in DB")
     println("-- reset calories: reset current intake in DB")
+    println("-- reset date: reset data in DB by date")
     println("-- back : return to Main Menu")
     println("-- exit : close CLI")
   }
@@ -741,6 +745,48 @@ class Cli {
                   else if(arg.equals("all")) {
                     printList()
                   }
+                  else if(arg.equals("saved")) {
+                    println("Enter a date in dd/mm/yyyy format: ")
+                    var input = StdIn.readLine()
+
+                    var temp = 0
+                    var temp2 = 0
+                    for(i <- 1 to dao.getByDate(input).size) {
+                      // this prints only once
+                      if (temp < 1) {
+                        println("========== ")
+                        println(s"Your list from $input:")
+                      }
+                      println(s"$i. ${(dao.getByDate(input)(i - 1).foodName)}")
+                      temp += 1
+                    }
+                    println("========== ")
+
+                    var cal = 0
+                    var fat = 0
+                    var carb = 0
+                    var protein = 0
+
+                    for(i <- 1 to dao2.getByDate(input).size) {
+                      // this prints only once
+                      if (temp2 < 1) {
+                        println(s"And your total intake from $input:")
+                      }
+
+                      cal += ((dao2.getByDate(input)(i - 1).total_calories).toString.replace("Some","").replace("(", "").replace(")", "")).toInt
+                      fat += ((dao2.getByDate(input)(i - 1).total_fat).toString.replace("Some","").replace("(", "").replace(")", "")).toInt
+                      carb += ((dao2.getByDate(input)(i - 1).total_carb).toString.replace("Some","").replace("(", "").replace(")", "")).toInt
+                      protein += ((dao2.getByDate(input)(i - 1).total_protein).toString.replace("Some","").replace("(", "").replace(")", "")).toInt
+
+                      println(s"Total calories: ${cal}g")
+                      println(s"Total fat intake: ${fat}g")
+                      println(s"Total carb intake: ${carb}g")
+                      println(s"Total protein intake: ${protein}g")
+                      temp2 += 1
+                    }
+
+                    println("========== \n")
+                  }
                   else {
                     println("Invalid command. Please try again \n")
                   }
@@ -774,6 +820,27 @@ class Cli {
 
                     dao2.insertCalorie(date, retCal, retFat, retCarbs, retProtein)
                   }
+                  else if (arg.equals("all")) {
+                    // getting the current date
+                    val format = new SimpleDateFormat("M/dd/y")
+                    var date = ""
+                    date = format.format(Calendar.getInstance().getTime())
+
+                    var num = 0
+                    // stores the current food list in DB
+                    for (i <- 1 to myFoodList.size) {
+                      dao.insertFood(date, myFoodList(num), myTotalCal(num), myTotalFat(num), myTotalCarb(num), myTotalProtein(num))
+                      num += 1
+                    }
+                    // stores the current intake in DB
+                    var retCal, retFat, retCarbs, retProtein = 0
+                    for (i <- myTotalCal) retCal += i
+                    for (i <- myTotalFat) retFat += i
+                    for (i <- myTotalCarb) retCarbs += i
+                    for (i <- myTotalProtein) retProtein += i
+
+                    dao2.insertCalorie(date, retCal, retFat, retCarbs, retProtein)
+                  }
                   else {
                     println("Invalid command. Please try again \n")
                   }
@@ -786,6 +853,12 @@ class Cli {
                   }
                   else if (arg.equals("calories")) {
                     dao2.deleteAll();
+                  }
+                  else if (arg.equals("date")) {
+                    println("Enter a date in dd/mm/yyyy format: ")
+                    var input = StdIn.readLine()
+                    dao.deleteByDate(input);
+                    dao2.deleteByDate(input);
                   }
                   else {
                     println("Invalid command. Please try again")

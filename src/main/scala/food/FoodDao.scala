@@ -5,6 +5,7 @@ import org.bson.codecs.configuration.CodecRegistries.{fromProviders, fromRegistr
 import org.mongodb.scala.{MongoClient, MongoCollection, Observable}
 import org.mongodb.scala.model.Filters
 import org.mongodb.scala.bson.codecs.Macros._
+import org.mongodb.scala.model.Filters.equal
 
 import scala.concurrent.Await
 import scala.concurrent.duration.{Duration, SECONDS}
@@ -48,6 +49,29 @@ class FoodDao {
     //  delete all documents with the field title "foodName"
     printResults(collection.deleteMany(Filters.exists("foodName")))
 
+  }
+
+  /**
+   * function to retrieve data by current_date
+   * @return Seq[Food]
+   */
+  def getByDate(date: String) : Seq[Food] = {
+    getResults(collection.find(equal("current_date", date)))
+  }
+
+  /**
+   * function to delete data by current_date
+   * @return Unit
+   */
+  def deleteByDate(date: String) = {
+    try {
+      getResults(collection.deleteMany((equal("current_date", date))))
+    } catch {
+      case e: Exception => {
+        e.printStackTrace()
+        false
+      }
+    }
   }
 
 }
