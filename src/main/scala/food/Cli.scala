@@ -46,9 +46,9 @@ class Cli {
    * @return Unit
    */
   def printWelcome() : Unit = {
-    println("========================================")
-    println("| Hi. Welcome to your Calorie Tracker  |")
-    println("========================================")
+    println("===========================================")
+    println("| Hello. Welcome to your Calorie Tracker  |")
+    println("===========================================")
   }
 
   /**
@@ -125,7 +125,8 @@ class Cli {
             val bufferedSource = io.Source.fromFile(arg)
             var num = 1
             var num_of_food = 0
-            println("Choose one of the following. Type in the corresponded number. \n")
+            println("Choose one of the following. Type in a number from 1 to 57 " +
+              "(i.e. option 1 will be big mac). \n")
             // parse each line from the .csv file and drop the header
 
             for (line <- bufferedSource.getLines.drop(1)) {

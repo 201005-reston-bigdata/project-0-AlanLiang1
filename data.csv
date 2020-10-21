@@ -1,58 +1,58 @@
-food, calories, fat, carbs, protein,
-big mac, 550, 30, 45, 25
-quarter pounder with cheese, 520, 26, 42, 30
-double quarter pounder with cheese, 740, 42, 43, 48,
-quarter pounder with cheese deluxe, 630, 37, 44, 30,
-mcdouble, 400, 20, 33, 22,
-quarter pounder with cheese bacon, 630, 35, 43, 36,
-cheeseburger, 300, 13, 32, 15
-double cheeseburger, 450, 24, 34, 25,
-hamburger, 250, 9, 31, 12,
-j balvin, 550, 30, 45, 25,
-egg mcmuffin, 310, 13, 30, 17,
-bacon egg and cheese biscuit, 460, 26, 39, 17,
-sausage mcmuffin, 400, 26, 29, 14,
-sausage mcmuffin with egg, 480, 31, 30, 20,
-sausage biscuit, 460, 30, 36, 11,
-sausage biscuit with egg, 530, 34, 38, 17,
-bacon egg and cheese mcgriddles, 430, 21, 44, 17,
-sausage mcgriddles, 430, 24, 41, 11,
-sausage egg and cheese mcgriddles, 550, 32, 45, 20,
-bacon egg and cheese bagel, 590, 30, 56, 25,
-big breakfast, 760, 48, 57, 26,
-big breakfast with hotcakes, 1340, 64, 155, 35,
-hotcakes, 590, 15, 102, 9,
-hotcakes and sausage, 770, 33, 102, 15,
-sausage burrito, 310, 17, 25, 13,
-hash browns, 140, 8, 18, 2,
-fruit and maple oatmeal, 290, 4, 49, 6,
-hot and spicy mcchicken biscuit, 420, 20, 45, 14,
-four piece chicken mcnuggets, 170, 10, 10, 9,
-six piece chicken mcnuggets, 250, 15, 15, 14,
-ten piece chicken mcnuggets, 420, 25, 25, 23,
-twenty piece chicken mcnuggets, 830, 49, 51, 46,
-buttermilk crispy chicken sandwich, 600, 29, 58, 27,
-mcchicken, 400, 21, 39, 14,
-filet o fish, 380, 18, 38, 16,
-kids fries, 110, 5, 15, 2,
-small fries, 220, 10, 29, 3,
-medium fries, 320, 15, 43, 5,
-large fries, 490, 23, 66, 7,
-apple slices, 15, 0, 4, 0,
-small chocolate shake, 530, 15, 87, 12
-medium chocolate shake, 630, 17, 104, 14
-large chocolate shake, 840, 22, 142, 19,
-small vanilla shake, 490, 13, 79, 11,
-medium vanilla shake, 590, 16, 96, 13,
-large vanilla shake, 790, 21, 130, 18,
-small strawberry shake, 500, 15, 80, 12,
-medium strawberry shake, 590, 18, 95, 14,
-large strawberry shake, 800, 23, 130, 19,
-kiddie cone, 45, 1, 8, 1,
-vanilla cone, 200, 5, 32, 5,
-hot fudge sundae, 330, 10, 52, 8,
-hot caramel sundae, 340, 7, 60, 7,
-mcflurry with m&m candies, 640, 21, 96, 13,
-mcflurry with oreo cookies, 510, 16, 80, 12,
-baked apple pie, 240, 11, 33, 2,
-chocolate chip cookie, 170, 8, 22, 2
+food ,calories,fat,carbs,protein
+big mac,550,30,45,25
+quarter pounder with cheese,520,26,43,30
+double quarter pounder with cheese,740,42,43,48
+quarter pounder with cheese deluxe,630,35,43,36
+mcdouble,400,20,33,22
+quarter pounder with cheese bacon,630,35,43,36
+cheeseburger,300,13,32,15
+double cheeseburger,450,24,34,25
+hamburger,250,9,31,12
+j balvin,550,30,45,25
+egg mcmuffin,310,13,30,17
+bacon egg and cheese biscuit,460,26,39,17
+sausage mcmuffin,400,26,29,14
+sausage mcmuffin with egg,480,31,30,20
+sausage biscuit,460,30,36,11
+sausage biscuit with egg,530,34,38,17
+bacon egg and cheese mcgriddles,430,21,44,17
+sausage mcgriddles,430,24,41,11
+sausage egg and cheese mcgriddles,550,32,45,20
+bacon egg and cheese bagel,590,30,56,25
+big breakfast,760,48,57,26
+big breakfast with hotcakes,1340,64,155,35
+hotcakes,590,15,102,9
+hotcakes and sausage,770,33,102,15
+sausage burrito,310,17,25,13
+hash browns,140,8,18,2
+fruit and maple oatmeal,290,4,49,6
+hot and spicy mcchicken biscuit,420,20,45,14
+four piece chicken mcnuggets,170,10,10,9
+six piece chicken mcnuggets,250,15,15,14
+ten piece chicken mcnuggets,420,25,25,23
+twenty piece chicken mcnuggets,830,49,51,46
+buttermilk crispy chicken sandwich,600,29,58,27
+mcchicken,400,21,39,14
+filet o fish,380,18,38,16
+kids fries,110,5,15,2
+small fries,220,10,29,3
+medium fries,320,15,43,5
+large fries,490,23,66,7
+apple slices,15,0,4,0
+small chocolate shake,530,15,87,12
+medium chocolate shake,630,17,104,14
+large chocolate shake,840,22,142,19
+small vanilla shake,490,13,79,11
+medium vanilla shake,590,16,96,13
+large vanilla shake,790,21,130,18
+small strawberry shake,500,15,80,12
+medium strawberry shake,590,18,95,14
+large strawberry shake,800,23,130,19
+kiddie cone,45,1,8,1
+vanilla cone,200,5,32,5
+hot fudge sundae,330,10,52,8
+hot caramel sundae,340,7,60,7
+mcflurry with m&m candies,640,21,96,13
+mcflurry with oreo cookies,510,16,80,12
+baked apple pie,240,11,33,2
+chocolate chip cookie,170,8,22,2
