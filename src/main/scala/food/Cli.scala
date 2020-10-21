@@ -152,9 +152,10 @@ class Cli {
 
             do {
               printOptions2()
-              // when the user enters a number to the corresponding food from the list, the program saves it
-              StdIn.readLine() match {
 
+              // this takes in the second command from user
+              StdIn.readLine() match {
+                // when the user enters a number to the corresponding food from the list, the program saves it
                 case commandArgPattern(cmd, arg) if cmd.equalsIgnoreCase("1") => {
                   myFoodList += foodList(0)
                   myTotalCal += totalCal(0)
@@ -867,6 +868,14 @@ class Cli {
                 }
 
                 case commandArgPattern(cmd, arg) if cmd.equalsIgnoreCase("back") => continueMenuLoop2 = false
+                case commandArgPattern(cmd, arg) if cmd.equalsIgnoreCase("exit") => {
+                  println("exiting... ")
+                  println("goodbye")
+                  dao.closeClient()
+                  dao2.closeClient()
+                  continueMenuLoop2 = false
+                  continueMenuLoop = false
+                }
                 case commandArgPattern(cmd, arg) => println(s"$cmd $arg is an invalid command. Please try again. \n")
                 case _ =>
               }
@@ -880,6 +889,8 @@ class Cli {
         case commandArgPattern(cmd, arg) if cmd.equalsIgnoreCase("exit") => {
           println("exiting... ")
           println("goodbye")
+          dao.closeClient()
+          dao2.closeClient()
           continueMenuLoop = false
         }
         case commandArgPattern(cmd, arg) => println(s"$cmd $arg is an invalid command. Please try again.\n")

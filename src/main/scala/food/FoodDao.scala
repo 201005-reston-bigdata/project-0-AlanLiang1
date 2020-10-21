@@ -74,4 +74,13 @@ class FoodDao {
     }
   }
 
+  /**
+   * function to close client when done
+   * @return Unit
+   */
+  def closeClient(): Unit = {
+    client.close()
+  }
+
+
 }
